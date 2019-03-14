@@ -1,0 +1,43 @@
+From d3c7c1a91c460267e7b2d0c5f9f41c94cc94d4cb Mon Sep 17 00:00:00 2001
+From: "Simental Magana, Marcos" <marcos.simental.magana@intel.com>
+Date: Wed, 13 Mar 2019 15:00:49 -0600
+Subject: [PATCH 1/2] install only gtk/gnome-shell themes
+
+---
+ Install | 20 --------------------
+ 1 file changed, 20 deletions(-)
+
+diff --git a/Install b/Install
+index 49f752e..bfbcf2b 100755
+--- a/Install
++++ b/Install
+@@ -74,26 +74,6 @@ install() {
+   cp -ur ${SRC_DIR}/src/gnome-shell/common-assets                                    ${THEME_DIR}/gnome-shell
+   cp -ur ${SRC_DIR}/src/gnome-shell/assets${ELSE_DARK}                               ${THEME_DIR}/gnome-shell/assets
+   cp -ur ${SRC_DIR}/src/gnome-shell/gnome-shell${color}.css                          ${THEME_DIR}/gnome-shell/gnome-shell.css
+-
+-  mkdir -p                                                                           ${THEME_DIR}/cinnamon
+-  cp -ur ${SRC_DIR}/src/cinnamon/common-assets                                       ${THEME_DIR}/cinnamon
+-  cp -ur ${SRC_DIR}/src/cinnamon/assets${ELSE_DARK}                                  ${THEME_DIR}/cinnamon/assets
+-  cp -ur ${SRC_DIR}/src/cinnamon/cinnamon${ELSE_DARK}.css                            ${THEME_DIR}/cinnamon/cinnamon.css
+-  cp -ur ${SRC_DIR}/src/cinnamon/thumbnail${ELSE_DARK}.png                           ${THEME_DIR}/cinnamon/thumbnail.png
+-
+-  mkdir -p                                                                           ${THEME_DIR}/metacity-1
+-  cp -ur ${SRC_DIR}/src/metacity-1/assets${ELSE_LIGHT}/*.png                         ${THEME_DIR}/metacity-1
+-  cp -ur ${SRC_DIR}/src/metacity-1/metacity-theme-3.xml                              ${THEME_DIR}/metacity-1
+-  cp -ur ${SRC_DIR}/src/metacity-1/metacity-theme-1${ELSE_LIGHT}.xml                 ${THEME_DIR}/metacity-1/metacity-theme-1.xml
+-  cp -ur ${SRC_DIR}/src/metacity-1/thumbnail${ELSE_LIGHT}.png                        ${THEME_DIR}/metacity-1/thumbnail.png
+-  cd ${THEME_DIR}/metacity-1
+-  ln -s metacity-theme-1.xml metacity-theme-2.xml
+-
+-  mkdir -p                                                                           ${THEME_DIR}/xfwm4
+-  cp -ur ${SRC_DIR}/src/xfwm4/themerc${ELSE_LIGHT}                                   ${THEME_DIR}/xfwm4/themerc
+-  cp -ur ${SRC_DIR}/src/xfwm4/assets${ELSE_LIGHT}/*.png                              ${THEME_DIR}/xfwm4
+-
+-  cp -ur ${SRC_DIR}/src/plank                                                        ${THEME_DIR}
+ }
+ 
+ TITLE_BUTTON_C="@extend %circle_titlebutton"
+-- 
+2.20.1
+

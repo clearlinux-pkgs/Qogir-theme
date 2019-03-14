@@ -1,0 +1,55 @@
+From 1e02d2d17725327d6f28de8add5641a6b67d1c88 Mon Sep 17 00:00:00 2001
+From: "Simental Magana, Marcos" <marcos.simental.magana@intel.com>
+Date: Wed, 13 Mar 2019 16:47:14 -0600
+Subject: [PATCH 2/2] Add makefile
+
+---
+ Install  | 12 ++++--------
+ Makefile | 12 ++++++++++++
+ 2 files changed, 16 insertions(+), 8 deletions(-)
+ create mode 100644 Makefile
+
+diff --git a/Install b/Install
+index bfbcf2b..520e93d 100755
+--- a/Install
++++ b/Install
+@@ -1,14 +1,10 @@
+ #!/bin/bash
+ 
+-ROOT_UID=0
+-DEST_DIR=
+-
+-# Destination directory
+-if [ "$UID" -eq "$ROOT_UID" ]; then
+-  DEST_DIR="/usr/share/themes"
+-else
+-  DEST_DIR="$HOME/.themes"
++if [ -z "$PREFIX" ]; then
++    PREFIX=/usr
+ fi
++THEMEDIR="${PREFIX}/share/themes"
++DEST_DIR="${DESTDIR}${THEMEDIR}"
+ 
+ SRC_DIR=$(cd $(dirname $0) && pwd)
+ 
+diff --git a/Makefile b/Makefile
+new file mode 100644
+index 0000000..6ab89d7
+--- /dev/null
++++ b/Makefile
+@@ -0,0 +1,12 @@
++PREFIX=/usr
++
++.PHONY: build
++build:
++	@echo "nothing to do"
++
++.PHONY: install
++install:
++	export DESTDIR="$(DESTDIR)"
++	export PREFIX="$(PREFIX)"
++	./Install
++
+-- 
+2.20.1
+
